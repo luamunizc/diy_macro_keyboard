@@ -114,18 +114,17 @@ void setState(State newState) {
 void copy(int button) {
   bool estadoAtual = digitalRead(button);
   
-  if (estadoAtual != lastB1) { // 1. O botão se mexeu (apertou ou soltou)
-    delay(50); // 2. Espera a mola parar de tremer
-    estadoAtual = digitalRead(button); // 3. Lê de novo para confirmar o estado real
+  if (estadoAtual != lastB1) {
+    delay(50);
+    estadoAtual = digitalRead(button);
     
-    if (estadoAtual == LOW && lastB1 == HIGH) { // 4. Se foi realmente um APERTO
+    if (estadoAtual == LOW && lastB1 == HIGH) {
       bleKeyboard.press(KEY_LEFT_CTRL);
       bleKeyboard.press('c');
-      delay(50); // Tempo rápido para o Windows registrar que as teclas desceram
+      delay(50);
       bleKeyboard.releaseAll();
     }
-    lastB1 = estadoAtual; // Atualiza a memória de forma segura
-  }
+    lastB1 = estadoAtual;
 }
 
 void paste(int button) {
@@ -212,7 +211,7 @@ void zoom() {
   if (novaPosicao - posicaoAntiga >= 4) {
     bleKeyboard.press(KEY_LEFT_CTRL);
     bleKeyboard.press('+');
-    delay(20); // Delay quase zero, só pro OS não ignorar o comando
+    delay(20);
     bleKeyboard.releaseAll();
     posicaoAntiga = novaPosicao;
   } else if (posicaoAntiga - novaPosicao >= 4) {
