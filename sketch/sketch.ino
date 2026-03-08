@@ -125,6 +125,7 @@ void copy(int button) {
       bleKeyboard.releaseAll();
     }
     lastB1 = estadoAtual;
+  }
 }
 
 void paste(int button) {

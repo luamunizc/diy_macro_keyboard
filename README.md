@@ -114,7 +114,6 @@ You can easily add new layers or remap actions:
 ## ⚠️ Known Issues / TODOs
 
 - [ ] `LOW_BATTERY` state is defined but not yet implemented
-- [ ] Missing closing brace `}` in `copy()` function — fix before compiling
 - [ ] Battery monitoring logic not connected
 
 ---
